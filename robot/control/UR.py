@@ -3,7 +3,7 @@ from time import sleep
 from socket import socket, AF_INET, SOCK_STREAM
 import robot.constants as const
 
-class Elfin_Server():
+class UR_Server():
     """
     This class is similar to tracker devices wrappers.
     It follows the same functions as the others (Initialize, Run and Close)
