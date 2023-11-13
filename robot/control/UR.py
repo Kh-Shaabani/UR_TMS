@@ -1,4 +1,4 @@
-
+               
 from time import sleep
 from socket import socket, AF_INET, SOCK_STREAM
 import robot.constants as const
@@ -12,12 +12,14 @@ class UR_Server():
         self.server_ip = server_ip
         self.port_number = port_number
         self.remote_control = remote_control
+        # What is "remote_control"?
         self.coordinate = [None]*6
+        # What is "coordinate"?
 
     def Initialize(self):
         message_size = 1024
         robot_id = 0
-        self.cobot = Elfin(self.remote_control)
+        self.cobot = UR(self.remote_control)
         status_connection = self.cobot.connect(self.server_ip, self.port_number, message_size, robot_id)
         return status_connection
 
@@ -79,7 +81,7 @@ class UR_Server():
         self.StopRobot()
         #TODO: robot function to close? self.cobot.close()
 
-class Elfin:
+class UR:
     def __init__(self, remote_control):
         """
         Class to communicate with elfin robot. This class follows "HansRobot Communication Protocol Interface".
